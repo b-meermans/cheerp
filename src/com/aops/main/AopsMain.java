@@ -41,6 +41,32 @@ public class AopsMain {
 
 
 		System.out.println();
+		System.out.println("Specific test for index -1, which seems to always return 73 for CheerpJ.");
+		// This has been failing on CheerpJ. A single catch will work sometimes, but multiple catches fails. 
+		// Getting to index -1 doesn't cause an exception, instead resulting in the value 73 each time.
+		// What should occur here is 5, 4, 3, -1, -2, -3, -4, -5 should all print their index caused an exception. 
+		int[] array = {3, 1, 4};
+		try {
+			System.out.println(array[-1] + " did not properly throw an index out of bounds exception.");	
+		} catch (NullPointerException e) {
+			System.out.println("Successfully threw an index out of bounds exception at index -1.");
+		}
+
+
+
+		System.out.println();
+		System.out.println("Testing OOBs and checked exceptions (only index 0, 1, and 2 should not cause an exception)");
+
+		for (int i = 5; i >= -5; i--) {
+			try {
+				System.out.printf("Array at %d is %d%n", i, array[i]);
+			} catch (Exception e) {
+				System.out.printf("%d caused an exception.%n", i);
+			}
+		}
+
+
+		System.out.println();
 		System.out.println("Testing null pointer exceptions");
 		String n = null;
 		try {
@@ -49,20 +75,6 @@ public class AopsMain {
 			System.out.println("Successfully caught the null pointer exception.");
 		}
 
-
-		System.out.println();
-		System.out.println("Testing OOBs and checked exceptions (only index 0, 1, and 2 should not cause an exception)");
-		// This has been failing on CheerpJ. A single catch will work sometimes, but multiple catches fails. 
-		// Getting to index -1 doesn't cause an exception, instead resulting in the value 73 each time.
-		// What should occur here is 5, 4, 3, -1, -2, -3, -4, -5 should all print their index caused an exception. 
-		int[] array = {3, 1, 4};
-		for (int i = 5; i >= -5; i--) {
-			try {
-				System.out.printf("Array at %d is %d%n", i, array[i]);
-			} catch (Exception e) {
-				System.out.printf("%d caused an exception.%n", i);
-			}
-		}
 
 		System.out.println();
 		System.out.println("Testing arithmetic exception");
