@@ -1,0 +1,52 @@
+<html>
+	<!--Head  -->
+	<head>
+		<meta charset="utf-8">
+		<title>AoPS CheerpJ Test</title>
+	</head>
+
+	<!-- Body -->
+	<body>
+		<h1>AoPS CheerpJ Test</h1>
+
+		<textarea id="log-output" rows="60" cols="100"></textarea>
+
+		<!-- Scripts -->
+		<!-- Pilot build of CheerpJ 3.0 ... I found this on their Discord server -->
+		<script type="text/javascript">
+			const logOutput = document.getElementById('log-output');
+
+			// Store the original console.log function
+			const originalConsoleLog = console.log;
+
+			// Override console.log to capture messages
+			console.log = function(message) {
+				// Call the original console.log function
+				originalConsoleLog.apply(console, arguments);
+
+				// Append the message to the log output textarea
+				logOutput.value += message;
+
+				// Optionally, scroll to the bottom of the textarea to show the latest logs
+				logOutput.scrollTop = logOutput.scrollHeight;
+				
+			};
+
+		</script>
+
+
+
+		<script src="https://cjrtnc.leaningtech.com/3.0rc1/cj3loader.js"></script>
+		<script type="text/javascript">
+
+			(async function () {
+					await cheerpjInit();
+					// cheerpjCreateDisplay(800, 600);
+					await cheerpjRunJar("/app/build/AopsApp.jar");
+			})();
+
+			
+		</script>
+	</body>
+
+</html>
