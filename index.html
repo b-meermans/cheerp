@@ -9,7 +9,7 @@
 	<body>
 		<h1>AoPS CheerpJ Test</h1>
 
-		<textarea id="log-output" rows="60" cols="100"></textarea>
+		<textarea id="log-output" rows="40" cols="100"></textarea>
 
 		<!-- Scripts -->
 		<!-- Pilot build of CheerpJ 3.0 ... I found this on their Discord server -->
@@ -41,7 +41,7 @@
 
 			(async function () {
 					await cheerpjInit();
-					// cheerpjCreateDisplay(800, 600);
+					cheerpjCreateDisplay(400, 400);
 					await cheerpjRunJar("/app/build/AopsApp.jar");
 			})();
 
