@@ -5,8 +5,6 @@ import java.util.TreeSet;
 
 public class ExceptionTest {
     public static void testJava() {
-		System.out.println("\n\nStarting up!");
-		System.out.println("Current JVM version - " + System.getProperty("java.version"));
 
 		System.out.println();
 		System.out.println("Test TreeSet");
