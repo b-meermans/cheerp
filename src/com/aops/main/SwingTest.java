@@ -10,6 +10,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class SwingTest extends JFrame {
 
@@ -37,8 +39,24 @@ public class SwingTest extends JFrame {
 		private BufferedImage arrowImage;
 		private int arrowWidth = 20; // Set the width of the image
 		private int arrowHeight = 20; // Set the height of the image
+		private JLabel timeLabel;
 
 		public ArrowPanel() {
+			timeLabel = new JLabel();
+			timeLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+			updateTime();
+
+			Timer timer = new Timer(1000, new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					updateTime();
+				}
+			});
+			timer.start();
+
+			add(timeLabel);
+
+
 			try {
 				// Load the arrow image from a file (replace "arrow.png" with your image file)
 				// Assuming "images/arrow.png" is in the root of the JAR
@@ -83,6 +101,13 @@ public class SwingTest extends JFrame {
                 g.drawLine(x, 0, x, getHeight());
             }
         }
+
+		private void updateTime() {
+			// Update the time label with the current time
+			SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+			String currentTime = dateFormat.format(new Date());
+			timeLabel.setText("Current Time: " + currentTime);
+		}
 
 		private void drawArrow(Graphics g) {
 			if (arrowImage != null) {
