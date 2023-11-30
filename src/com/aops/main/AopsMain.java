@@ -7,9 +7,12 @@ public class AopsMain {
 		System.out.println("\n*** Opening an interactive graphics (Swing) demo ***\n");
 		SwingTest.testSwing();
 
-//		FileWritingTest.addTimeStamp("script.txt");
+		// Reading and writing to files
 		System.out.println("\n*** Reading from a File Test ***\n");
 		FileReadingTest.printContent("script.txt");		
+		System.out.println("\n*** Writing to then reading from a file ***\n");
+		FileWritingTest.addTimeStamp("writing.txt");
+		FileReadingTest.printContent("writing.txt");		
 
 		// Reflection on classes tests - currently passing methods and fields, but failing on parameters
 		System.out.println("\n*** Reflection Test ***\n");

@@ -20,35 +20,20 @@ public class FileWritingTest {
 
 
         String filePath = "/text/" + fileName;
-        
-        URL resourceUrl = FileWritingTest.class.getClassLoader().getResource(filePath);
-
-        if (resourceUrl == null) {
-            System.out.println("Resource not found: " + filePath);
-            return;
-        }
-
-        // Convert the URL to a Path
-        Path resourcePath;
-        try {
-            resourcePath = Paths.get(resourceUrl.toURI());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-            return;
-        }
-
-        // Create a path for the file in the build directory
+        Path buildFilePath = Paths.get("build", filePath);
 
         try {
             // Create the build directory if it doesn't exist
-            Files.createDirectories(resourcePath.getParent());
+            Files.createDirectories(buildFilePath.getParent());
 
             // Use FileWriter to write to the file in the build directory
-            try (FileWriter fileWriter = new FileWriter(resourcePath.toFile())) {
+            try (FileWriter fileWriter = new FileWriter(buildFilePath.toFile())) {
                 fileWriter.write(time);
+                fileWriter.close();
             }
 
             System.out.println("Text written to the file in the build directory successfully.");
+        
         } catch (IOException e) {
             e.printStackTrace();
         }
