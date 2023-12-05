@@ -35,7 +35,7 @@ public class POJOTest {
     }
 
     public void displayAllFields() {
-        System.out.println("Should display non-private fields (string)");
+        System.out.println("\nShould display non-private fields (string)");
         for (Field field : pojo.getClass().getFields()) {
             System.out.println(field.getName());
         }

@@ -4,7 +4,8 @@ import com.aops.main.SwingGUI.AOPS.Actor;
 
 public class RightWalk extends Actor {
     public RightWalk() {
-        scale(10, 10);
+        super("ScratchCat.png");
+        scale(50, 50);
     }
 
     public void act() {

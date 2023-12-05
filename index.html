@@ -9,7 +9,8 @@
 	<body>
 		<h1>AoPS CheerpJ Test</h1>
 
-		<textarea id="log-output" rows="40" cols="100"></textarea>
+		<textarea id="log-output" rows="30" cols="97"></textarea>
+		<button onclick="clearLog()">Clear</button>
 
 		<!-- Scripts -->
 		<!-- Pilot build of CheerpJ 3.0 ... I found this on their Discord server -->
@@ -32,16 +33,19 @@
 				
 			};
 
+			function clearLog() {
+				// Clear the content of the log output textarea
+				logOutput.value = '';
+        	}
+
 		</script>
 
-
-
-		<script src="https://cjrtnc.leaningtech.com/3_20231202_306/cj3loader.js"></script>
+		<script src="https://cjrtnc.leaningtech.com/3.0rc2/cj3loader.js"></script>
 		<script type="text/javascript">
 
 			(async function () {
 					await cheerpjInit();
-					cheerpjCreateDisplay(400, 400);
+					cheerpjCreateDisplay(800, 600);
 					await cheerpjRunJar("/app/build/AopsApp.jar");
 			})();
 

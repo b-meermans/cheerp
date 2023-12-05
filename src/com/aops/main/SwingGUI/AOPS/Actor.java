@@ -20,6 +20,10 @@ public abstract class Actor {
         this(0, 0, DEFAULT_IMAGE);
     }
 
+    public Actor(String imageName) {
+        this(0, 0, 0, imageName);
+    }
+
     public Actor(double x, double y, String imageName) {
         this(x, y, 0, imageName);
     }
@@ -88,5 +92,9 @@ public abstract class Actor {
             this.width = width;
             this.height = height;
         }
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
     }
 }

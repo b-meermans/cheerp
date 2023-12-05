@@ -6,6 +6,7 @@ import com.aops.main.StudentCode.MyStage;
 import com.aops.main.SwingGUI.AOPS.Actor;
 import com.aops.main.SwingGUI.AOPS.Stage;
 import com.aops.main.SwingGUI.Listeners.KeyboardListener;
+import com.aops.main.SwingGUI.Listeners.MouseListener;
 import com.aops.main.SwingGUI.Listeners.UpdateTimerListener;
 
 import java.awt.*;
@@ -54,6 +55,8 @@ public class StagePanel extends JPanel {
                 addKeyListener(new KeyboardListener());
                 setFocusable(true);
                 updateTimerListener = new UpdateTimerListener(myself);
+                addMouseListener(new MouseListener());
+                addMouseMotionListener(new MouseListener());
             }
         });
     }

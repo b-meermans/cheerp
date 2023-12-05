@@ -17,10 +17,10 @@ public class Arrow extends Actor {
             velocityY = -5;
         }
         if (Events.isKeyDown("left")) {
-            velocityX -= 0.1;
+            velocityX -= 0.4;
         }
         if (Events.isKeyDown("right")) {
-            velocityX += 0.1;
+            velocityX += 0.4;
         }
 
         velocityX *= 0.95;

@@ -21,6 +21,7 @@ public class ImageLoader {
 
         try {
             URL imageUrl = ImageLoader.class.getResource("/images/" + imageName);
+            System.out.println(imageName);
             return ImageIO.read(imageUrl);
         } catch (Exception e) {
             System.out.println("Image: " + imageName + " not found.");

@@ -11,7 +11,7 @@ public abstract class Stage {
     private Image image;
 
     public Stage() {
-        this(600, 400);
+        this(800, 600);
     }
 
     public Stage(int width, int height) {
@@ -47,6 +47,10 @@ public abstract class Stage {
 
     private void loadImage(String imageName) {
         image = ImageLoader.loadImage(imageName);
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
     }
 
 }
